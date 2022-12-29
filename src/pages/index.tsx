@@ -76,7 +76,7 @@ export default function Home() {
       </div>
       <footer className='absolute inset-x-2 bottom-1'>
         <div>
-          <span className='text-white font-medium'>Made with ❤️ by <a href="https://github.com/pivattogui" target="_blank" rel="noopener" className='text-blue-500'>@pivattogui</a></span>
+          <span className='text-white font-medium'>Made with ❤️ by <a href="https://github.com/pivattogui" className='text-blue-500'>@pivattogui</a></span>
         </div>
       </footer>
     </>
