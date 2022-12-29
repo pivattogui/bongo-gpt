@@ -3,6 +3,7 @@ import openai from '../lib/openai'
 import Button from '../components/Button'
 import { useState } from 'react'
 import TextInput from '../components/TextInput'
+import Image from 'next/image'
 
 export default function Home() {
   const [input, setInput] = useState<string>('')
@@ -47,7 +48,7 @@ export default function Home() {
       <div className="flex flex-col items-center">
         <div className='w-1/4'>
           <div className='flex flex-col items-center mb-4 text-white space-y-1'>
-            <img src="/bongo-cat.gif" alt="Bongo Cat" />
+            <Image src="/bongo-cat.gif" alt="Bongo Cat" />
             <span className="text-xs tracking-4 text-white/80">Totalmente não profissional</span>
             <span className=' font-bold text-3xl'>
               Bongo <span className="font-thin text-3xl">GPT</span>
@@ -75,7 +76,7 @@ export default function Home() {
       </div>
       <footer className='absolute inset-x-2 bottom-1'>
         <div>
-          <span className='text-white font-medium'>Made with ❤️ by <a href="https://github.com/pivattogui" target="_blank" className='text-blue-500'>@pivattogui</a></span>
+          <span className='text-white font-medium'>Made with ❤️ by <a href="https://github.com/pivattogui" target="_blank" rel="noopener" className='text-blue-500'>@pivattogui</a></span>
         </div>
       </footer>
     </>
