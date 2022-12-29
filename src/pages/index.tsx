@@ -46,7 +46,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className="flex flex-col items-center">
-        <div className='w-1/4'>
+        <div className='sm:w-1/4 m-2'>
           <div className='flex flex-col items-center mb-4 text-white space-y-1'>
             <Image width={450} height={450} src="/bongo-cat.gif" alt="Bongo Cat" />
             <span className="text-xs tracking-4 text-white/80">Totalmente não profissional</span>
