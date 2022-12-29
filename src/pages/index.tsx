@@ -48,7 +48,7 @@ export default function Home() {
       <div className="flex flex-col items-center">
         <div className='w-1/4'>
           <div className='flex flex-col items-center mb-4 text-white space-y-1'>
-            <Image src="/bongo-cat.gif" alt="Bongo Cat" />
+            <Image width={450} height={450} src="/bongo-cat.gif" alt="Bongo Cat" />
             <span className="text-xs tracking-4 text-white/80">Totalmente não profissional</span>
             <span className=' font-bold text-3xl'>
               Bongo <span className="font-thin text-3xl">GPT</span>
