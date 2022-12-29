@@ -1,7 +1,7 @@
 # Bongo Chat
 
 ## Sobre
-Projeto desenvolvido para fins de estudos da `openai`, clone da funcionabilidade de conversação do ChatGPT com respostas curtas e grossas.
+Projeto desenvolvido para fins de estudos da `openai`, clone da funcionabilidade de conversação do ChatGPT com respostas personalizadas dependendo do humor selecionado.
 
 ---
 
