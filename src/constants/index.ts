@@ -2,19 +2,19 @@ import { MoodOption } from "../types";
 
 export const OPTIONS: MoodOption[] = [
     {
-        mood: "NEUTRAL",
+        type: "NEUTRAL",
         value: "Normal"
     },
     {
-        mood: "SMART",
-        value: "Inteligente"
+        type: "PHILOSOPHICAL",
+        value: "Filosófica"
     },
     {
-        mood: "LOVED",
+        type: "LOVED",
         value: "Amorosa"
     },
     {
-        mood: "RUDE",
+        type: "RUDE",
         value: "Groseira"
     },
 ]

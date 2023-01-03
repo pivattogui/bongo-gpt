@@ -45,18 +45,18 @@ export default function Home() {
     <div>
       <SelectMood mood={mood} setMood={setMood} />
       <div className="flex flex-col items-center">
-        <div className='sm:w-1/4 sm:mx-0 mx-4 '>
-          <HeaderBongo />
-          <TextInput
-            placeholder='Digite sua pergunta'
-            value={input}
-            setValue={setInput}
-            onEnter={answerQuestion}
-          />
-          <Button
-            text='Enviar'
-            action={answerQuestion}
-          />
+        <div className='lg:w-1/4 w-80 sm:mx-0 mx-4 '>
+          <HeaderBongo mood={mood.type} />
+            <TextInput
+              placeholder='Digite sua pergunta'
+              value={input}
+              setValue={setInput}
+              onEnter={answerQuestion}
+            />
+            <Button
+              text='Enviar'
+              action={answerQuestion}
+            />
           <AnswerPreview answer={answer} />
         </div>
       </div >

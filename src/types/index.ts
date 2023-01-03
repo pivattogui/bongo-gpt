@@ -1,11 +1,11 @@
 export enum MOODS {
     LOVED,
     RUDE,
-    SMART,
+    PHILOSOPHICAL,
     NEUTRAL,
 }
 
 export type MoodOption = {
-    mood: keyof typeof MOODS;
+    type: keyof typeof MOODS;
     value: string;
 }
