@@ -1,11 +1,12 @@
 import Image from "next/image"
 import { MOODS } from "../types"
 import { useEffect, useState } from "react"
+import useTranslation from 'next-translate/useTranslation'
 
 function HeaderBongo({ mood }: { mood: keyof typeof MOODS }) {
+    const { t } = useTranslation('common')
     const [shake, setShake] = useState<boolean>(false)
     const [catGif, setCatGif] = useState<string>("/bongo-cat.gif")
-
 
     const selectBongoCat = () => {
         switch (mood) {
@@ -41,7 +42,7 @@ function HeaderBongo({ mood }: { mood: keyof typeof MOODS }) {
             <div className={shake ? "shake" : ""}>
                 <Image width={300} height={300} src={catGif} alt="Bongo Cat" />
             </div>
-            <span className="text-xs tracking-4 text-white/80">Totalmente não profissional</span>
+            <span className="text-xs tracking-4 text-white/80">{t('subTitle')}</span>
             <span className=' font-bold text-3xl'>
                 Bongo <span className="font-thin text-3xl">GPT</span>
             </span>

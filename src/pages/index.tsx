@@ -4,15 +4,22 @@ import { useEffect, useState } from 'react'
 import TextInput from '../components/TextInput'
 import HeaderBongo from '../components/HeaderBongo'
 import AnswerPreview from '../components/AnswerPreview'
-import { MoodOption } from '../types'
 import { OPTIONS } from '../constants'
+import useTranslation from 'next-translate/useTranslation'
+import { useRouter } from 'next/router'
+import { translateMoods } from '../helpers/translate'
 import SelectMood from '../components/SelectMood'
 
 export default function Home() {
+  const { t } = useTranslation('common')
+
+  const router = useRouter();
+  const { locale } = router;
+
   const [input, setInput] = useState<string>('')
   const [answer, setAnswer] = useState<string | null>(null)
-  const [mood, setMood] = useState<MoodOption>(OPTIONS[0])
-  const [prompt, setPrompt] = useState<string>(`responda de maneira ${mood.value}, `)
+  const [mood, setMood] = useState<string>(OPTIONS[0])
+  const [prompt, setPrompt] = useState<string>('')
 
   //fixme: change this in end point
   const answerQuestion = async () => {
@@ -46,24 +53,25 @@ export default function Home() {
     }
   }
 
-  useEffect(()=>{
-    setPrompt(`responda de maneira ${mood.value}, `)
-  },[mood])
+  useEffect(() => {
+    setPrompt(`${t('basePrompt')} ${translateMoods(t, mood)}, `)
+    setAnswer(null)
+  }, [mood, locale])
 
   return (
     <div>
       <SelectMood mood={mood} setMood={setMood} />
       <div className="flex flex-col items-center">
         <div className='lg:w-1/4 w-80 sm:mx-0 mx-4 '>
-          <HeaderBongo mood={mood.type} />
+          <HeaderBongo mood={mood} />
           <TextInput
-            placeholder='Digite sua pergunta'
+            placeholder={t('input.placeholder')}
             value={input}
             setValue={setInput}
             onEnter={answerQuestion}
           />
           <Button
-            text='Enviar'
+            text={t('button.text')}
             action={answerQuestion}
           />
           <AnswerPreview answer={answer} />

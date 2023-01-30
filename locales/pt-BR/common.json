@@ -1,0 +1,20 @@
+{
+    "basePrompt":  "Responda de maneira ",
+    "subTitle": "Totalmente não profissional",
+    "output":{
+        "waiting": "Pensando...",
+        "error": "Não entendi sua pergunta, tente novamente"
+    },
+    "input":{
+        "placeholder": "Digite sua pergunta"
+    },
+    "button":{
+        "text": "Enviar"
+    },
+    "mood":{
+        "normal": "Normal",
+        "philosophical": "Filosófico",
+        "lovingly": "Amoroso",
+        "rudely": "Groseiro"
+    }
+}

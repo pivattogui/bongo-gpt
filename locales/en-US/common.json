@@ -1,0 +1,20 @@
+{
+    "basePrompt": "Reply ",
+    "subTitle": "Totally unprofessional",
+    "output":{
+        "waiting": "Thinking...",
+        "error": "I didn't understand your question, try again"
+    },
+    "input":{
+        "placeholder": "Type your answer"
+    },
+    "button":{
+        "text": "Send"
+    },
+    "mood":{
+        "normal": "Default",
+        "philosophical": "Philosophical",
+        "lovingly": "Loving",
+        "rudely": "Rude"
+    }
+}
