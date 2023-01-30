@@ -1,6 +1,6 @@
 import openai from '../lib/openai'
 import Button from '../components/Button'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import TextInput from '../components/TextInput'
 import HeaderBongo from '../components/HeaderBongo'
 import AnswerPreview from '../components/AnswerPreview'
@@ -12,16 +12,19 @@ export default function Home() {
   const [input, setInput] = useState<string>('')
   const [answer, setAnswer] = useState<string | null>(null)
   const [mood, setMood] = useState<MoodOption>(OPTIONS[0])
+  const [prompt, setPrompt] = useState<string>(`responda de maneira ${mood.value}, `)
 
+  //fixme: change this in end point
   const answerQuestion = async () => {
     //check if input is empty
     if (!input) return
     try {
+      //set answer to thinking
       setAnswer('Pensando...')
-      //add ask to answer
+      //call openai api
       const response = await openai.createCompletion({
         model: 'text-davinci-003',
-        prompt: `responda de maneira ${mood.value}, ${input}`,
+        prompt: prompt + '\n\n' + input,
         best_of: 1,
         frequency_penalty: 0,
         logprobs: 0,
@@ -35,11 +38,17 @@ export default function Home() {
       if (!response.data.choices[0].text) return
       //remove ask from answer
       setAnswer(response.data.choices[0].text?.replace(input, ''))
+      //add answer to prompt
+      setPrompt(prompt + '\n\n' + input + response.data.choices[0].text)
     } catch (err) {
       setAnswer('Não entendi sua pergunta, tente novamente')
       console.log(err)
     }
   }
+
+  useEffect(()=>{
+    setPrompt(`responda de maneira ${mood.value}, `)
+  },[mood])
 
   return (
     <div>
@@ -47,16 +56,16 @@ export default function Home() {
       <div className="flex flex-col items-center">
         <div className='lg:w-1/4 w-80 sm:mx-0 mx-4 '>
           <HeaderBongo mood={mood.type} />
-            <TextInput
-              placeholder='Digite sua pergunta'
-              value={input}
-              setValue={setInput}
-              onEnter={answerQuestion}
-            />
-            <Button
-              text='Enviar'
-              action={answerQuestion}
-            />
+          <TextInput
+            placeholder='Digite sua pergunta'
+            value={input}
+            setValue={setInput}
+            onEnter={answerQuestion}
+          />
+          <Button
+            text='Enviar'
+            action={answerQuestion}
+          />
           <AnswerPreview answer={answer} />
         </div>
       </div >
