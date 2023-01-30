@@ -1,9 +1,8 @@
 import Image from "next/image"
-import { MOODS } from "../types"
 import { useEffect, useState } from "react"
 import useTranslation from 'next-translate/useTranslation'
 
-function HeaderBongo({ mood }: { mood: keyof typeof MOODS }) {
+function HeaderBongo({ mood }: { mood: string }) {
     const { t } = useTranslation('common')
     const [shake, setShake] = useState<boolean>(false)
     const [catGif, setCatGif] = useState<string>("/bongo-cat.gif")
